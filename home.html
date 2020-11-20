@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="/learn/home1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+    <title>Weather App</title>
+</head>
+<body>
+    <div class= "c1">
+        <div class= "p1"></div>
+        <div class= "p2"></div>
+        <div class= "p3"></div>
+        <div id= "weathercon"><i class="fas fa-sun"  style="color: yellow" ></i></div>
+        <div id= "info">
+            <h2 class= "location"> <i class="fas fa-street-view"></i>{%city%}, {%country%}</h2>
+            <p id= "date">WED | NOV 20 | 10:45PM</p>
+            <h1 class= "temp">{%temp%} </h1>
+            <h3 class= "min_max"> {%temp_min%} | {%temp_max%}</h3>
+        </div>
+
+    </div>
+    <script>
+        const currdate= document.getElementById("date");
+        let weathercon= document.getElementById("weathercon");
+        const get = ()=>{
+            var a= new Array(7);
+            a[0]= "Sunday"; a[1]= "Monday"; a[2]= "Tuesday"; a[3]= "Wednesday"; a[4]= "Thursday"; a[5]= "Friday"; a[6]= "Saturday";
+            let currentTime= new Date();
+            return a[currentTime.getDay()];
+        };
+        const get1= () =>{
+            var months= [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December', 
+            ];
+            var p= new Date();
+            var month= months[p.getMonth()]; 
+            var day= p.getDate();
+            var year= p.getFullYear();
+            let hours= p.getHours();
+            let min= p.getMinutes();
+            let q= "AM";
+            if(hours>11){
+                q= "PM";
+                if(hours>12) hours= hours-12;
+            }
+            if(min<10){
+                 min= "0"+min; 
+            }
+            return `${month} ${day} | ${hours}: ${min} ${q}`;
+        };
+        currdate.innerHTML=   get()+ " | " +get1();
+    </script>
+</body>
+</html>

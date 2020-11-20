@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+.c1 {
+    background-color: lightblue;
+    height: 60vh;
+    width: 20vw;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 0.2rem 0.3rem rgb(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+.fa-street-view {
+    margin: 1px;
+    animation: mov 2s infinite alternate;
+}
+@keyframes mov{
+    from{
+        transform: translateX(-0.4rem);
+    }
+    to {
+        transform: translateX(0.4rem);
+    }
+}
+#weathercon {
+    height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}
+#weathercon .fas{
+    font-size: 6rem;
+    animation: do 2s infinite alternate;
+}
+@keyframes do {
+    from{
+        transform: scale(0.9);
+    }
+    to{
+        transform: scale(1.2);
+    }
+}
+#info {
+    position: relative;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+}
